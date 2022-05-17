@@ -1,0 +1,25 @@
+name: Ping
+
+on:
+  push:
+    branches: [ '*' ]
+  schedule:
+    - cron: '*/3 * * * *'
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: ls .
+      - name: Install dependencies
+        uses: VaultVulp/action-pipenv@v2.0.1
+        with:
+          command: install
+      - name: Run
+        env:
+          LOGIN: ${{ secrets.LOGIN }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        uses: VaultVulp/action-pipenv@v2.0.1
+        with:
+          command: run ./osticket-ping.py
