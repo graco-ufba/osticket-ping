@@ -1,0 +1,8 @@
+{
+  "cron": [
+    {
+      "command": "python osticket-ping.py",
+      "schedule": "* * * * *"
+    }
+  ]
+}
