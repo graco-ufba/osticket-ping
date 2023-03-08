@@ -23,3 +23,4 @@ jobs:
         uses: VaultVulp/action-pipenv@v2.0.1
         with:
           command: run ./osticket-ping.py
+      - uses: gautamkrishnar/keepalive-workflow@v1
